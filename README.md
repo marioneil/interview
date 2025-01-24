@@ -1,70 +1,83 @@
-# Getting Started with Create React App
+build a login form
+build a backend with nodejs
+auth the user id/ pass combination
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1.  init react app
+    npm create vite@latest
 
-## Available Scripts
+npx create-react-app my-app
 
-In the project directory, you can run:
+https://vite.dev/guide/
 
-### `npm start`
+2. cd my-app
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+3. install axios
+   npm install axios
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+4. redux
+   https://react-redux.js.org/introduction/getting-started
+   npm install react-redux
 
-### `npm test`
+5. add a user id / password form
+   install tailwind
+   https://tailwindcss.com/docs/guides/create-react-app
+   npm install -D tailwindcss
+   npx tailwindcss init
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+open index.css and remove all lines
 
-### `npm run build`
+then paste
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Delete App.css
+open App.js and remove the import App.css
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+remove all html code from App.js except the outermost div
+Add "Hello WOrld" to page
+check home page hs no css/ fields
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+install react router dom
+npm install react-router-dom
+open index.js
+import { BrowserRouter } from 'react-router-dom';
+add tag aound App
+<BrowserRouter>
+<App />
+</BrowserRouter>
 
-### `npm run eject`
+=====================///////////////////
+Server
+init node js
+install express
+init typsecript
+cors error
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+===============================================================================
+First Api - display all objects.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Step 1 - create an axios call get the response from end point
+   1.1 use a hook to call endpoint.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2. Create a table to display the structure
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+[
+{
+"id": "1",
+"name": "Google Pixel 6 Pro",
+},
+{
+"id": "2",
+"name": "Google Pixel 6 Pro",
+},
 
-## Learn More
+]
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Jan 23, 2025 3. Create a filter
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+put the value in state.
+useEffect only for the search term.
+update sceen using array filter.
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+add a input text box
