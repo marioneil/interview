@@ -81,3 +81,8 @@ useEffect only for the search term.
 update sceen using array filter.
 
 add a input text box
+
+Jan 29
+https://www.developerway.com/posts/debouncing-in-react
+
+https://www.developerway.com/posts/debouncing-in-react

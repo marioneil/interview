@@ -1,4 +1,8 @@
 {
+  "include": [
+    "wwwroot/js/**/*.ts",
+    "wwwroot/js/**/*.tsx" // <-- this needed to be added in my case
+  ],
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig to read more about this file */
 
