@@ -1,17 +1,20 @@
 import axios from "axios";
 import { debounce } from "lodash";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState, useContext } from "react";
 
-import { BaseList } from "./BaseList";
-import { Spinner } from "./Spinner";
+import { BaseList, HOCList } from "./BaseList";
+import { HOCSpinner, Spinner } from "./Spinner";
 import { Phone } from "./Types";
+
+import { SearchContext } from "./Context";
 
 export const Home = () => {
   const [phones, setPhones] = useState([]);
+  const searchInputRef = useRef<HTMLButtonElement>(null);
 
   //const [search, setSearch] = useState("");
 
-  const [loading, setLoading] = useState(true);
+  const { loading, setLoading } = useContext(SearchContext);
 
   const [filteredPhones, setFilteredPhones] = useState([]);
   console.log("render");
@@ -46,17 +49,27 @@ export const Home = () => {
     // console.log(event.target.value);
     const value = event.target.value;
     filter(value);
+    if (value.length >= 3) {
+      searchInputRef.current?.focus();
+    }
     // setSearch(value);
   };
 
   const debouncedFilter = debounce(handleChange, 500);
+
+  const setFocus = () => {
+    // document.getElementById("search-navbar")?.focus();
+    searchInputRef.current?.focus();
+  };
 
   useEffect(() => {
     //  debouncedFilter();
     setFilteredPhones(phones);
   }, [phones]);
 
-  if (loading) return <Spinner />;
+  console.log(loading);
+
+  if (loading) return <HOCSpinner></HOCSpinner>;
   return (
     <>
       <div className="relative ">
@@ -85,7 +98,17 @@ export const Home = () => {
           className="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           placeholder="Search..."
         />
-        <BaseList filteredPhones={filteredPhones} />
+        <HOCList filteredPhones={filteredPhones} />
+        <div>
+          <button
+            onClick={setFocus}
+            type="button"
+            ref={searchInputRef}
+            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+          >
+            Default
+          </button>
+        </div>
       </div>
     </>
   );

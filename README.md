@@ -86,3 +86,15 @@ Jan 29
 https://www.developerway.com/posts/debouncing-in-react
 
 https://www.developerway.com/posts/debouncing-in-react
+
+Feb 20,
+DONE
+https://www.w3schools.com/react/react_usecontext.aspf43 43. What is context API?
+https://www.geeksforgeeks.org/react-interview-questions/
+
+Object constructors in React.
+
+> > > > > > > > > > > > > > > > > > > > > > > > > > > > >
+
+March 4
+USe Spinner as HOC

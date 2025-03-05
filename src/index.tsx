@@ -5,12 +5,16 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 
 import "./index.css";
+import { SearchProvider } from "./Context";
 
 const root = ReactDOM.createRoot(document.getElementById("root")!);
 root.render(
   // <React.StrictMode>
+
   <BrowserRouter>
-    <App />
+    <SearchProvider>
+      <App />
+    </SearchProvider>
   </BrowserRouter>
   // </React.StrictMode>
 );

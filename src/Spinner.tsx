@@ -1,4 +1,5 @@
 import React from "react";
+import { withHigherOrderComponent } from "./ToDo";
 
 export const Spinner = () => {
   return (
@@ -25,3 +26,5 @@ export const Spinner = () => {
     </div>
   );
 };
+
+export const HOCSpinner = withHigherOrderComponent(Spinner);
