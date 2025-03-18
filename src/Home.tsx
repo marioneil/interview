@@ -1,45 +1,20 @@
-import axios from "axios";
 import { debounce } from "lodash";
-import React, { useEffect, useRef, useState, useContext } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 
-import { BaseList, HOCList } from "./BaseList";
-import { HOCSpinner, Spinner } from "./Spinner";
+import { BaseList } from "./BaseList";
 import { Phone } from "./Types";
 
-import { SearchContext } from "./Context";
-
-export const Home = () => {
-  const [phones, setPhones] = useState([]);
+export const Home: React.FC<{ data: any[] }> = (props) => {
+  const phones = props.data;
   const searchInputRef = useRef<HTMLButtonElement>(null);
 
-  //const [search, setSearch] = useState("");
-
-  const { loading, setLoading } = useContext(SearchContext);
-
-  const [filteredPhones, setFilteredPhones] = useState([]);
+  const [filteredPhones, setFilteredPhones] = useState<Phone[]>([]);
   console.log("render");
-
-  useEffect(() => {
-    getData();
-  }, []);
-
-  const getData = async () => {
-    setLoading(true);
-    try {
-      const response = await axios.get("https://api.restful-api.dev/objects");
-      setPhones(response.data);
-    } catch (err) {
-      console.log(err);
-      setPhones([]);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const filter = (search: string) => {
     console.log("aa");
     setFilteredPhones(
-      phones.filter((phone: Phone) => {
+      phones.filter((phone) => {
         return phone.name.toLowerCase().indexOf(search.toLowerCase()) >= 0;
       })
     );
@@ -67,9 +42,6 @@ export const Home = () => {
     setFilteredPhones(phones);
   }, [phones]);
 
-  console.log(loading);
-
-  if (loading) return <HOCSpinner></HOCSpinner>;
   return (
     <>
       <div className="relative ">
@@ -98,7 +70,7 @@ export const Home = () => {
           className="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           placeholder="Search..."
         />
-        <HOCList filteredPhones={filteredPhones} />
+        <BaseList filteredPhones={filteredPhones} />
         <div>
           <button
             onClick={setFocus}

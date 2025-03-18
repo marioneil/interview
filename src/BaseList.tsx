@@ -1,6 +1,5 @@
 import React from "react";
 
-import { withHigherOrderComponent } from "./ToDo";
 import { Phone } from "./Types";
 
 export const BaseList = ({ filteredPhones }: { filteredPhones: Phone[] }) => {
@@ -41,5 +40,3 @@ export const BaseList = ({ filteredPhones }: { filteredPhones: Phone[] }) => {
     </div>
   );
 };
-
-export const HOCList = withHigherOrderComponent(BaseList);

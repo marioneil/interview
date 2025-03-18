@@ -98,3 +98,14 @@ Object constructors in React.
 
 March 4
 USe Spinner as HOC
+
+Mwrch 10 HOC examples
+
+https://www.youtube.com/watch?v=CjOciQqRosQ
+styles,
+onhover HOC.
+dog api for spinner hoc.
+
+> > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > react concepts.
+
+March 11 design patterns in react
